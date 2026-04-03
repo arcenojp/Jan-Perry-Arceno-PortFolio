@@ -1,4 +1,5 @@
-// Carousel functionality
+// ----- PROJECT CAROUSEL -----
+// Get the carousel elements
 const track = document.querySelector('.carousel-track');
 const slides = Array.from(track.children);
 const prevButton = document.querySelector('.prev');
@@ -7,7 +8,7 @@ const dotsContainer = document.querySelector('.carousel-dots');
 
 let currentIndex = 0;
 
-// Create dots
+// Create navigation dots for each project
 slides.forEach((_, index) => {
   const dot = document.createElement('button');
   dot.classList.add('dot');
@@ -18,24 +19,30 @@ slides.forEach((_, index) => {
 
 const dots = Array.from(document.querySelectorAll('.dot'));
 
+// Update which dot is active
 const updateDots = (index) => {
   dots.forEach(dot => dot.classList.remove('active'));
   dots[index].classList.add('active');
 };
 
+// Move to a specific slide (with wrap-around)
 const moveToSlide = (index) => {
+  // Loop back if at start or end
   if (index < 0) index = slides.length - 1;
   if (index >= slides.length) index = 0;
+  
+  // Slide the track
   track.style.transform = `translateX(-${index * 100}%)`;
   updateDots(index);
   currentIndex = index;
 
-  // Re-trigger animation
+  // Replay the folder open animation on the new slide
   slides.forEach(slide => slide.style.animation = 'none');
-  slides[index].offsetHeight; // force reflow
+  slides[index].offsetHeight; // force browser to reflow
   slides[index].style.animation = 'folderOpen 0.4s ease-out';
 };
 
+// Previous / next buttons
 prevButton.addEventListener('click', () => {
   moveToSlide(currentIndex - 1);
 });
@@ -44,67 +51,66 @@ nextButton.addEventListener('click', () => {
   moveToSlide(currentIndex + 1);
 });
 
-// Smooth scrolling for anchor links (including nav)
+
+// ----- SMOOTH SCROLLING FOR ALL ANCHOR LINKS -----
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   anchor.addEventListener('click', function (e) {
     e.preventDefault();
     const target = document.querySelector(this.getAttribute('href'));
     if (target) {
-      target.scrollIntoView({
-        behavior: 'smooth'
-      });
+      target.scrollIntoView({ behavior: 'smooth' });
     }
   });
 });
 
-// Section navigation active state (Intersection Observer)
-const sections = document.querySelectorAll('#hero, #skills, #learning, #projects, #footer');
+// ----- HIGHLIGHT ACTIVE NAVIGATION LINK ON SCROLL (STABLE) -----
+const sections = document.querySelectorAll('#home, #skills, #learning, #projects, #footer');
 const navLinks = document.querySelectorAll('.nav-link');
 
-const observerOptions = {
-  root: null,
-  rootMargin: '0px',
-  threshold: 0.3 // when 30% of section is visible
-};
-
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      const id = entry.target.getAttribute('id');
-      navLinks.forEach(link => {
-        link.classList.remove('active');
-        if (link.getAttribute('href') === `#${id}`) {
-          link.classList.add('active');
-        }
-      });
-    }
-  });
-}, observerOptions);
-
-sections.forEach(section => {
-  observer.observe(section);
-});
-
-// Set initial active on page load (if any section is already visible)
-// The observer will handle it, but we can trigger a quick check
-window.addEventListener('load', () => {
-  // Find the section that is most visible
-  let maxVisible = 0;
-  let activeId = null;
+// Find which section is currently most visible (largest intersection area)
+const getTopmostVisibleSection = () => {
+  let topmost = null;
+  let minDistance = Infinity;
+  
   sections.forEach(section => {
     const rect = section.getBoundingClientRect();
-    const visibleHeight = Math.min(rect.bottom, window.innerHeight) - Math.max(rect.top, 0);
-    if (visibleHeight > maxVisible) {
-      maxVisible = visibleHeight;
-      activeId = section.getAttribute('id');
+    if (rect.top < window.innerHeight && rect.bottom > 0) {
+      // Section is visible, get distance from top of viewport
+      const distance = Math.abs(rect.top);
+      if (distance < minDistance) {
+        minDistance = distance;
+        topmost = section;
+      }
     }
   });
-  if (activeId) {
+  return topmost;
+};
+
+// Update active link based on topmost visible section
+const updateActiveLink = () => {
+  const activeSection = getTopmostVisibleSection();
+  if (activeSection) {
+    const id = activeSection.getAttribute('id');
     navLinks.forEach(link => {
       link.classList.remove('active');
-      if (link.getAttribute('href') === `#${activeId}`) {
+      if (link.getAttribute('href') === `#${id}`) {
         link.classList.add('active');
       }
     });
   }
+};
+
+// Listen to scroll and resize events (with requestAnimationFrame for performance)
+let ticking = false;
+window.addEventListener('scroll', () => {
+  if (!ticking) {
+    requestAnimationFrame(() => {
+      updateActiveLink();
+      ticking = false;
+    });
+    ticking = true;
+  }
 });
+
+window.addEventListener('resize', updateActiveLink);
+updateActiveLink(); // initial call

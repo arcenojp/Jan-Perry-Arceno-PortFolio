@@ -1,4 +1,4 @@
-/* ---------- RESET & BASE ---------- */
+
 * {
   margin: 0;
   padding: 0;
@@ -18,75 +18,50 @@ a {
   color: inherit;
 }
 
-/* ---------- SECTION NAVIGATION (right side) ---------- */
-.section-nav {
-  position: fixed;
-  right: 20px;
-  top: 50%;
-  transform: translateY(-50%);
-  z-index: 1000;
-}
-
-.section-nav ul {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-
-.section-nav li {
-  margin: 25px 0;
-}
-
-.section-nav .nav-link {
-  display: flex;
-  align-items: center;
-  color: #94a3b8;
-  text-decoration: none;
-  transition: color 0.2s;
-  position: relative;
-}
-
-.section-nav .nav-dot {
-  display: inline-block;
-  width: 12px;
-  height: 12px;
-  border-radius: 50%;
-  background: #4b5563;
-  transition: background 0.2s, transform 0.2s;
-}
-
-.section-nav .nav-label {
-  display: none;
-  margin-left: 12px;
-  font-size: 14px;
-  font-weight: 500;
-  white-space: nowrap;
+ /* top navigation bar */
+.top-nav {
   background: #1e293b;
-  padding: 4px 8px;
-  border-radius: 20px;
-  color: #f1f5f9;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+  padding: 1rem 0;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.3);
 }
 
-.section-nav .nav-link:hover .nav-dot,
-.section-nav .nav-link.active .nav-dot {
-  background: #3b82f6;
-  transform: scale(1.3);
+.nav-container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
 }
 
-.section-nav .nav-link.active .nav-label,
-.section-nav .nav-link:hover .nav-label {
-  display: inline-block;
+.nav-link {
+  color: #cbd5e1;
+  text-decoration: none;
+  font-weight: 500;
+  padding: 0.5rem 1rem;
+  border-radius: 30px;
+  transition: all 0.2s;
 }
 
-/* Hide on mobile */
+.nav-link:hover {
+  background: #334155;
+  color: white;
+}
+
+.nav-link.active {
+  color: #3b82f6;
+;
+}
 @media (max-width: 768px) {
   .section-nav {
     display: none;
   }
 }
 
-/* ---------- UTILITY CLASSES ---------- */
 .container {
   max-width: 1100px;
   margin: 0 auto;
@@ -104,8 +79,7 @@ a {
   color: #f1f5f9;
 }
 
-/* ---------- HERO SECTION ---------- */
-.hero {
+.home {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -114,11 +88,11 @@ a {
   padding: 2rem 0;
 }
 
-.hero-content {
+.home-content {
   flex: 1;
 }
 
-.hero-content h1 {
+.home-content h1 {
   font-size: 3rem;
   font-weight: 700;
   line-height: 1.2;
@@ -126,11 +100,11 @@ a {
   color: #f1f5f9;
 }
 
-.hero-content .highlight {
+.home-content .highlight {
   color: #3b82f6;
 }
 
-.hero-content p {
+.home-content p {
   font-size: 1.2rem;
   color: #a0afc0;
   margin-bottom: 2rem;
@@ -154,14 +128,14 @@ a {
   transform: translateY(-2px);
 }
 
-.hero-image {
+.home-image {
   flex: 1;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.hero-image img {
+.home-image img {
   max-width: 100%;
   width: 320px;
   height: auto;
@@ -171,7 +145,6 @@ a {
   border: 4px solid #1e293b;
 }
 
-/* ---------- SKILLS SECTION (learned) ---------- */
 .skills {
   padding: 4rem 0;
   background: #11141a;
@@ -212,9 +185,28 @@ a {
   color: #b0c0d0;
   font-size: 0.98rem;
   line-height: 1.6;
+}.skills-gained {
+  margin-top: 1rem;
+  padding-top: 0.5rem;
+  border-top: 1px solid #2d3748;
 }
 
-/* ---------- CURRENTLY STUDYING SECTION ---------- */
+.skills-gained strong {
+  color: #3b82f6;
+  font-size: 0.9rem;
+}
+
+.skills-gained ul {
+  margin: 0.5rem 0 0 1.2rem;
+  padding: 0;
+}
+
+.skills-gained li {
+  color: #b0c0d0;
+  font-size: 0.9rem;
+  margin-bottom: 0.25rem;
+}
+
 .current-learning {
   padding: 4rem 0;
   background: #0f131a;
@@ -306,8 +298,6 @@ border: 2px solid #3b82f6;
   width: 1.2rem;
 }
 
-/* ---------- PROJECTS SECTION (CAROUSEL) ---------- */
-/* ---------- PROJECTS SECTION (CAROUSEL) ---------- */
 .projects {
   padding: 4rem 0;
   background: #0a0c10;
@@ -440,7 +430,6 @@ border: 2px solid #3b82f6;
   background: #3b82f6;
 }
 
-/* ---------- FOOTER ---------- */
 footer {
   background: #11141a;
   color: #b0c0d0;
@@ -484,25 +473,24 @@ footer {
   color: #6b7280;
 }
 
-/* ---------- RESPONSIVE ---------- */
 @media (max-width: 768px) {
-  .hero {
+  .home {
     flex-direction: column;
     text-align: center;
     min-height: auto;
     padding: 3rem 0;
   }
 
-  .hero-content p {
+  .home-content p {
     margin-left: auto;
     margin-right: auto;
   }
 
-  .hero-image {
+  .home-image {
     order: -1;
   }
 
-  .hero-image img {
+  .home-image img {
     width: 220px;
   }
 

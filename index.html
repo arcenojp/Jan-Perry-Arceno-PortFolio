@@ -3,23 +3,23 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Arceño Portfolio</title>
+  <title>Arceño Jan Perry Portfolio</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <nav class="section-nav">
-    <ul>
-      <li><a href="#hero" class="nav-link" data-section="hero"><span class="nav-dot"></span><span class="nav-label">Home</span></a></li>
-      <li><a href="#skills" class="nav-link" data-section="skills"><span class="nav-dot"></span><span class="nav-label">Skills</span></a></li>
-      <li><a href="#learning" class="nav-link" data-section="learning"><span class="nav-dot"></span><span class="nav-label">Studying</span></a></li>
-      <li><a href="#projects" class="nav-link" data-section="projects"><span class="nav-dot"></span><span class="nav-label">Projects</span></a></li>
-      <li><a href="#footer" class="nav-link" data-section="footer"><span class="nav-dot"></span><span class="nav-label">Contact</span></a></li>
-    </ul>
+  <nav class="top-nav">
+  <div class="nav-container">
+    <a href="#home" class="nav-link">Home</a>
+    <a href="#skills" class="nav-link">Skills</a>
+    <a href="#learning" class="nav-link">Learning</a>
+    <a href="#projects" class="nav-link">Projects</a>
+    <a href="#footer" class="nav-link">Contact</a>
+  </div>
   </nav>
-  <!-- HERO SECTION -->
-  <section class="hero container" id="hero">
-    <div class="hero-content">
+  <!-- Home Section -->
+  <section class="home container" id="home">
+    <div class="home-content">
       <h1>
           Hi, I'm<br> <span class="highlight">Jan Perry Arceño</span><br>  
       </h1>
@@ -29,84 +29,127 @@
        how technology works and what it can do.
       I'm still learning, but I'm excited to see where this journey takes me.
       </p>
-      <a href="#projects" class="btn">See my work →</a>
     </div>
-    <div class="hero-image">
+    <div class="home-image">
       <img src="profile-pic.jpg" alt="Your Name">
     </div>
   </section>
-
-  <!-- SKILLS & SUBJECTS Section -->
-  <section class="skills"id="skills">
-    <div class="container">
-      <h2 class="section-title">Subjects & Skills Learned</h2>
-      <div class="skills-grid">
-        <!-- Subject 1: Computing -->
-        <div class="skill-card">
-          <h3 class="skill-title">Introduction to Computing</h3>
-          <p class="skill-description">
-            My first introduction to learning about computer, the different categories of computers,
-            learning about computer components, and industry in the proffession. I also learned 
-            various software tools that google provide for free ex Docs,sheets,drive etc..
-          </p>
-        </div>
-        <!-- Subject 2: Web Development -->
-        <div class="skill-card">
-          <h3 class="skill-title">Web Development</h3>
-          <p class="skill-description">
-           My first introduction to learning about Web development, i learned how to write and
-            structure code for HTML, CSS and Javascript.
-         </p>
-        </div>
-        <!-- Subject 3: Database Systems -->
-        <div class="skill-card">
-          <h3 class="skill-title">Database Systems</h3>
-          <p class="skill-description">
-           My first introduction to learning about Database Systems, i learned to create a ERD system for Database,
-           learned Relational Database using Mysql,understanding primary keys and foreign keys and learned to create dataschema. 
-
-          </p>
-        </div>
-        <!-- Subject 4: Programming 1 and 2 -->
-        <div class="skill-card">
-          <h3 class="skill-title">Programming 1 and 2</h3>
-          <p class="skill-description">
-            My first introduction to programming and java: i learned here to write code for the first time,
-            learned about Data types,operators,and control statements of java. In programming 2 i learned
-            to Create GUI using Java Swing and create a prototype System using that language.
-
-          </p>
-        </div>
-        <!-- Subject 5: Operating Systems -->
-        <div class="skill-card">
-          <h3 class="skill-title">Operating Systems</h3>
-          <p class="skill-description">
-            I learned here core OS concepts: abstraction, resource management, concurrency,
-             and security across desktop, mobile, and embedded systems.
-              Explored CPU scheduling algorithms (FCFS, SJF, Round Robin, Priority)
-               with Gantt charts and foundational number systems
-                (binary, octal, hex) with conversions and ASCII representation.
-          </p>
-        </div>
-        <!-- Subject 6: App Dev -->
-        <div class="skill-card">
-          <h3 class="skill-title">App Development</h3>
-          <p class="skill-description">
-           I learned the fundamentals of app development, including designing, building, and testing applications. 
-    I gained experience in UI/UX design, understanding the Software Development Life Cycle (SDLC), and requirements gathering. 
-    and developed simple mobile applications using MIT App Inventor.
-          </p>
+<!-- Skills & Subject Section -->
+<section class="skills" id="skills">
+  <div class="container">
+    <h2 class="section-title">Subjects & Skills Learned</h2>
+    <div class="skills-grid">
+      
+      <!-- Introduction to Computing Card-->
+      <div class="skill-card">
+        <h3 class="skill-title">Introduction to Computing</h3>
+        <p class="skill-description">
+          Learned about computer categories, components, the IT profession, and free Google tools (Docs, Sheets, Drive).
+        </p>
+        <div class="skills-gained">
+          <strong>Skills gained:</strong>
+          <ul>
+            <li>Computer literacy</li>
+            <li>Google Workspace basics</li>
+            <li>Understanding of computer hardware</li>
+          </ul>
         </div>
       </div>
-    </div>
-  </section>
+      
+      <!-- Web Development Card-->
+      <div class="skill-card">
+        <h3 class="skill-title">Web Development</h3>
+        <p class="skill-description">
+          First introduction to web development: writing and
+           structuring code with HTML, CSS, and JavaScript.
+        </p>
+        <div class="skills-gained">
+          <strong>Skills gained:</strong>
+          <ul>
+            <li>HTML</li>
+            <li>CSS</li>
+            <li>Basic JavaScript</li>
+          </ul>
+        </div>
+      </div>
+      
+      <!-- Database Systems Card -->
+      <div class="skill-card">
+        <h3 class="skill-title">Database Systems</h3>
+        <p class="skill-description">
+          Learned to create ERD diagrams, relational databases with MySQL,
+           primary/foreign keys, and data schemas.
+        </p>
+        <div class="skills-gained">
+          <strong>Skills gained:</strong>
+          <ul>
+            <li>Database design (ERD)</li>
+            <li>MySQL queries</li>
+            <li>Schema creation</li>
+          </ul>
+        </div>
+      </div>
+      
+      <!-- Programming 1 and 2 (Java) Card -->
+      <div class="skill-card">
+        <h3 class="skill-title">Programming 1 & 2 (Java)</h3>
+        <p class="skill-description">
+          First coding experience on Java: data types, operators, control statements from (Programming 1).
+           Later built GUI prototypes using Java Swing from (Programming 2).
+        </p>
+        <div class="skills-gained">
+          <strong>Skills gained:</strong>
+          <ul>
+            <li>Java</li>
+            <li>Object-oriented basics</li>
+            <li>GUI with Java Swing</li>
+          </ul>
+        </div>
+      </div>
 
-  <!-- CURRENTLY STUDYING SECTION -->
+      <!-- Operating Systems Card -->
+      <div class="skill-card">
+        <h3 class="skill-title">Operating Systems</h3>
+        <p class="skill-description">
+          Core OS concepts: resource management, concurrency, security. CPU scheduling algorithms
+           (FCFS, SJF, Round Robin, Priority), Gantt charts, number systems (binary/octal/hex) and ASCII.
+        </p>
+        <div class="skills-gained">
+          <strong>Skills gained:</strong>
+          <ul>
+            <li>Process & memory management</li>
+            <li>Scheduling algorithm analysis</li>
+            <li>Number system conversions</li>
+          </ul>
+        </div>
+      </div>
+      
+      <!-- App Development Card -->
+      <div class="skill-card">
+        <h3 class="skill-title">App Development</h3>
+        <p class="skill-description">
+          Fundamentals of app design, building, and testing. Learned UI/UX basics, SDLC phases, requirements gathering, and built simple mobile apps with MIT App Inventor.
+        </p>
+        <div class="skills-gained">
+          <strong>Skills gained:</strong>
+          <ul>
+            <li>UI/UX design thinking</li>
+            <li>SDLC understanding</li>
+            <li>Prototyping (MIT App Inventor)</li>
+          </ul>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+</section>
+
+  <!-- Currently Studying or Learning Section -->
   <section class="current-learning"id="learning">
     <div class="container">
       <h2 class="section-title">Currently Studying</h2>
       <div class="learning-grid">
-        <!-- Current Subject 1: Networking -->
+        <!--  Networking Card -->
         <div class="learning-card">
           <div class="card-header">
             <i class="fas fa-book-open learning-icon"></i>
@@ -122,7 +165,7 @@
             <span><i class="far fa-calendar-alt"></i> Started November 2026</span>
           </div>
         </div>
-        <!-- Current Subject 2: Integrative Programming -->
+        <!-- Integrative Programming Card -->
         <div class="learning-card">
           <div class="card-header">
             <i class="fas fa-book-open learning-icon"></i>
@@ -138,7 +181,7 @@
             <span><i class="far fa-calendar-alt"></i> Started November 2026</span>
           </div>
         </div>
-        <!-- Current Subject 3: Data Science -->
+        <!-- Data Science Card -->
         <div class="learning-card">
           <div class="card-header">
             <i class="fas fa-book-open learning-icon"></i>
@@ -162,8 +205,10 @@
       <h2 class="section-title">Projects</h2>
       <!-- Carousel container -->
       <div class="carousel">
+
        <!--Button Prev--> <button class="carousel-btn prev" aria-label="Previous project"><i class="fas fa-chevron-left"></i></button>  
-        <div class="carousel-track-container">
+        
+       <div class="carousel-track-container">
           <div class="carousel-track">
             <!-- Project 1: Portfolio Website -->
             <div class="project-card">
@@ -247,7 +292,7 @@
         <!--Button Next--><button class="carousel-btn next" aria-label="Next project"><i class="fas fa-chevron-right"></i></button>
       </div>
       
-      <!-- Dots indicator -->
+      <!--Carousel Dots indicator -->
       <div class="carousel-dots"></div>
     </div>
   </section>
@@ -262,7 +307,8 @@
       </div>
       <div class="contact-email">
         <i class="fas fa-paper-plane"></i> arceno.janperry@gmail.com<br>
-        <i class="fas fa-phone"></i> 09566712755
+        <i class="fas fa-phone"></i> 09566712755<br>
+        <i class="fab fa-facebook-messenger"></i> Jp Arceño
       </div>
       <div class="copyright">
         &copy; 2026 Jan Perry Arceño.
