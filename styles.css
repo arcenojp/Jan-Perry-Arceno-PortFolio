@@ -9,7 +9,7 @@ body {
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   background-color: #000000;
   background-image: url("https://transparenttextures.com/patterns/hixs-evolution.png");
-  color: #e2e8f0;
+  color: white;
   line-height: 1.6;
   scroll-behavior: smooth;
 }
